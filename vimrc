@@ -63,11 +63,11 @@ set splitbelow                  " put new horizontal windows below of the curren
 " Look & Feel
 set t_Co=256                    " use 256 colors terminal
 set background=dark
-colorscheme minimal
 set ttyfast                     " fast terminal connection
 set scrolloff=3                 " min. number of screen lines above and below the cursor.
-syntax enable
 set laststatus=2                " show status line
+syntax enable
+colorscheme minimal
 
 "" Statusline
 if has("statusline")
@@ -123,7 +123,7 @@ cmap <C-p> <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>c \\\<CR>
 
 " Open NERDTree
-map <leader>n :NERDTreeToggle<CR>
+nmap <silent> <leader>n :NERDTreeToggle<CR>
 
 " Autocommands  -------------------------------------------------
 if has("autocmd")
@@ -134,15 +134,15 @@ if has("autocmd")
   autocmd FileType text setlocal textwidth=78
   autocmd FileType markdown setlocal textwidth=78
 
+  " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/  )
+  au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+
   " Autodelete trailing whitespace
   autocmd BufWritePre * :silent! %s/\s\+$//e
 
   " Set cursorline only for current window
   au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
   au WinLeave * setlocal nocursorline
-
-  " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/  )
-  au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
