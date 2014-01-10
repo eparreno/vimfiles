@@ -1,0 +1,23 @@
+set nocompatible
+
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" Define bundles via Github repos
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-haml'
+Bundle 'pangloss/vim-javascript'
+Bundle 'eparreno/matchit'
+Bundle 'ervandew/supertab'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-markdown'
+Bundle 'jiangmiao/auto-pairs'
+Bundle 'scrooloose/nerdtree'
+
+filetype on
