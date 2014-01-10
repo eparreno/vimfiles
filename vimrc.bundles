@@ -20,4 +20,7 @@ Bundle 'tpope/vim-markdown'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'scrooloose/nerdtree'
 
+" Color themes
+Bundle 'fxn/vim-monochrome'
+
 filetype on
