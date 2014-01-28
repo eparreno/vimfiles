@@ -4,7 +4,7 @@ My new vimfiles
 
 ## Installation
 
-    git clone https://github.com/eigenbart/vimfiles.git ~/.vim
+    git clone https://github.com/eparreno/vimfiles.git ~/.vim
     ln -s ~/.vim/vimrc ~/.vimrc
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
     vim +BundleInstall +qa!
