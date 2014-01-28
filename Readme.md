@@ -21,25 +21,29 @@ My new vimfiles
 
 ## Mappings
 
-- _,_ - Leader key
+- **,** Leader key
 
 ### Normal mode
 
-- _<C-j/k/h/l>_ - switch between splits (no need to prepend <C-w>)
-- _Y_ - Act like D and C, i.e. to yank until EOL
-- _,e_ - Appends an edit command with the path of the currently edited file filled in
-- _,c_ - Comment/Uncomment current line or selected lines in visual mode
-- _,,_ - Switch to previous window
-- _,n_ - Toggle NERDTree
+- **<C-j/k/h/l>** Switch between splits (no need to prepend <C-w>)
+- **Y** - Act like D and C, i.e. to yank until EOL
+- **,e** - Appends an edit command with the path of the currently edited file filled in
+- **,c** - Comment/Uncomment current line or selected lines in visual mode
+- **,,** - Switch to previous window
+- **,n** - Toggle NERDTree
 
 ### Insert mode
 
-- _,p_ - Toggle paste mode
-- _jj_ - Back to normal mode
+- **,p** - Toggle paste mode
+- **jj** - Back to normal mode
 
 ### Command mode
 
-- _,p_ - Insert current path
+- **,p** - Insert current path
+
+## Plugins
+
+Check vimrc.bundles file
 
 ## Customization
 
