@@ -67,7 +67,7 @@ set ttyfast                     " fast terminal connection
 set scrolloff=3                 " min. number of screen lines above and below the cursor.
 set laststatus=2                " show status line
 syntax enable
-colorscheme minimal
+colorscheme softdark
 
 "" Statusline
 if has("statusline")
@@ -81,6 +81,12 @@ if has("statusline")
   let &stl.='%8.(%l,%v%)'      " cursor's current line
   let &stl.='%5.(%p%%%)'       " percentage through file in lines, as in <c-g>
 endif
+
+"" Syntastic
+" let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
+let g:syntastic_echo_current_error=1
+let g:syntastic_auto_loc_list=1
 
 " Mappings -------------------------------------------------
 let mapleader = ","
