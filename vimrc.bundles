@@ -17,8 +17,10 @@ Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-fugitive'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
 
 " Color themes
 Bundle 'fxn/vim-monochrome'
