@@ -25,12 +25,13 @@ My new vimfiles
 
 ### Normal mode
 
-- **\<C-j/k/h/l\>** Switch between splits (no need to prepend <C-w>)
-- **Y** - Act like D and C, i.e. to yank until EOL
-- **,e** - Appends an edit command with the path of the currently edited file filled in
-- **,c** - Comment/Uncomment current line or selected lines in visual mode
-- **,,** - Switch to previous window
-- **,n** - Toggle NERDTree
+- **\<C-j/k/h/l\>** - Switch between splits (no need to prepend <C-w>)
+- **Y**     - Act like D and C, i.e. to yank until EOL
+- **,e**    - Appends an edit command with the path of the currently edited file filled in
+- **,c**    - Comment/Uncomment current line or selected lines in visual mode
+- **,,**    - Switch to previous window
+- **,n**    - Toggle NERDTree
+- **<C-p>** - Open CtrlP
 
 ### Insert mode
 
