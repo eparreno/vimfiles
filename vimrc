@@ -43,9 +43,9 @@ set noswapfile
 " Tab completion
 set wildmenu                    " better file/command completion
 set wildmode=list:longest
-set wildignore+=*.o,*.obj,*.png,*.jpg,*.gif
+set wildignore+=*.o,*.obj,*.png,*.jpg,*.gif,tags
 set wildignore+=bundle/**,vendor/bundle/**,vendor/cache/**,vendor/gems/**
-set wildignore+=log/**,tmp/**,*.scssc,*.sassc,*sass-cache*
+set wildignore+=log/**,tmp/**,*.scssc,*.sassc,*sass-cache*,coverage/**
 
 " Whitespace stuff
 set nowrap                      " disable text wrapping
@@ -130,6 +130,10 @@ map <leader>c \\\<CR>
 
 " Open NERDTree
 nmap <silent> <leader>n :NERDTreeToggle<CR>
+
+" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " Autocommands  -------------------------------------------------
 if has("autocmd")
