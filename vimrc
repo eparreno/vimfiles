@@ -145,6 +145,9 @@ map <leader>vq :VimuxCloseRunner<CR>
 " Interrupt any command running in the runner pane
 map <Leader>vs :VimuxInterruptRunner<CR>
 
+" Turbux
+let g:turbux_command_prefix = 'be'
+let g:turbux_command_rspec  = 'spec'
 " Autocommands  -------------------------------------------------
 if has("autocmd")
   " Treat JSON files like JavaScript
