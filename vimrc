@@ -135,6 +135,16 @@ nmap <silent> <leader>n :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
+" Vimux
+" Prompt for a command to run
+map <leader>vp :VimuxPromptCommand<CR>
+" Run last command
+map <Leader>vl :VimuxRunLastCommand<CR>
+" Close pane
+map <leader>vq :VimuxCloseRunner<CR>
+" Interrupt any command running in the runner pane
+map <Leader>vs :VimuxInterruptRunner<CR>
+
 " Autocommands  -------------------------------------------------
 if has("autocmd")
   " Treat JSON files like JavaScript

@@ -22,5 +22,6 @@ Bundle 'jiangmiao/auto-pairs'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
+Bundle 'benmills/vimux.git'
 
 filetype on
