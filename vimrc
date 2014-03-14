@@ -141,9 +141,9 @@ map <leader>vp :VimuxPromptCommand<CR>
 " Run last command
 map <Leader>vl :VimuxRunLastCommand<CR>
 " Close pane
-map <leader>vq :VimuxCloseRunner<CR>
+map <leader>vc :VimuxCloseRunner<CR>
 " Interrupt any command running in the runner pane
-map <Leader>vs :VimuxInterruptRunner<CR>
+map <Leader>vi :VimuxInterruptRunner<CR>
 
 " Turbux
 let g:turbux_command_prefix = 'be'
