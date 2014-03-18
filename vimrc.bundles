@@ -23,7 +23,6 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
 Bundle 'benmills/vimux'
-Bundle 'pgr0ss/vimux-ruby-test'
 Bundle 'jgdavey/vim-turbux'
 
 filetype on
