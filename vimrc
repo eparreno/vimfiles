@@ -23,6 +23,7 @@ set backspace=indent,eol,start  " make backspace work as expected
 set autoread                    " auto-reload buffers when file changed on disk
 set hidden                      " switch between buffers without saving them
 set visualbell                  " no sounds
+set re=1                        " use old regex engine http://goo.gl/ql7BtI
 
 " Mouse
 set mouse=a
@@ -71,15 +72,15 @@ colorscheme softdark
 
 "" Statusline
 if has("statusline")
-  let &stl=''                  " clear the statusline for when vimrc is reloaded
-  let &stl.='%.50f'             " buffers's file name
-  let &stl.='%h%m%r%w'          " flags
-  let &stl.='%='                " right align
-  let &stl.='%{&ft!=""?&ft:""} '       " file type
-  let &stl.='%{&fenc!=""?&fenc:&enc} ' " encoding
-  let &stl.='%{&ff!=""?&ff:""}'       " file format
-  let &stl.='%8.(%l,%v%)'      " cursor's current line
-  let &stl.='%5.(%p%%%)'       " percentage through file in lines, as in <c-g>
+  let &stl=''                           " clear the statusline for when vimrc is reloaded
+  let &stl.='%.50f'                     " buffers's file name
+  let &stl.='%h%m%r%w'                  " flags
+  let &stl.='%='                        " right align
+  let &stl.='%{&ft!=""?&ft:""} '        " file type
+  let &stl.='%{&fenc!=""?&fenc:&enc} '  " encoding
+  let &stl.='%{&ff!=""?&ff:""}'         " file format
+  let &stl.='%8.(%l,%v%)'               " cursor's current line
+  let &stl.='%5.(%p%%%)'                " percentage through file in lines, as in <c-g>
 endif
 
 "" Syntastic
@@ -97,11 +98,12 @@ nnoremap <Right> <NOP>
 nnoremap <Up>    <NOP>
 nnoremap <Down>  <NOP>
 
-map Y y$                        " act like D and C, i.e. to yank until EOL
-set pastetoggle=<leader>p       " toggle paste  mode
-map <leader>= <C-w>=            " adjust viewports to the same size
-imap jj <Esc>
-noremap Q gq                    " dont use Ex mode, use Q for formatting
+map Y y$                    " act like D and C, i.e. to yank until EOL
+set pastetoggle=<leader>p   " toggle paste  mode
+map <leader>= <C-w>=        " adjust viewports to the same size
+noremap Q gq                " dont use Ex mode, use Q for formatting
+imap jj <Esc>               " exit insert mode
+imap kk <Esc>               " exit insert mode
 
 " Keep visual mode after indenting
 vmap < <gv
@@ -118,6 +120,9 @@ nmap <leader><leader> <c-^>
 
 " Clear search highlight
 nmap <silent> <SPACE> <SPACE>:noh<CR>
+
+" Find word under cursor
+nnoremap <leader>f :Ggrep <cword><CR>
 
 " Appends an edit command with the path of the currently edited file filled in
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -148,6 +153,7 @@ map <Leader>vi :VimuxInterruptRunner<CR>
 " Turbux
 let g:turbux_command_prefix = 'be'
 let g:turbux_command_rspec  = 'spec'
+
 " Autocommands  -------------------------------------------------
 if has("autocmd")
   " Treat JSON files like JavaScript
