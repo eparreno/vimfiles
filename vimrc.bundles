@@ -23,5 +23,6 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
 Bundle 'benmills/vimux'
+Bundle 'skalnik/vim-vroom'
 
 filetype on

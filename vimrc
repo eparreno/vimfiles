@@ -90,7 +90,7 @@ let g:syntastic_echo_current_error=1
 let g:syntastic_auto_loc_list=1
 
 " Mappings -------------------------------------------------
-let mapleader = ","
+let mapleader = "\<Space>"
 
 " Disable arrow keys in normal mode
 nnoremap <Left>  <NOP>
@@ -104,6 +104,7 @@ map <leader>= <C-w>=        " adjust viewports to the same size
 noremap Q gq                " dont use Ex mode, use Q for formatting
 imap jj <Esc>               " exit insert mode
 imap kk <Esc>               " exit insert mode
+nnoremap <Leader>w :w<CR>   " faster file save
 
 " Keep visual mode after indenting
 vmap < <gv
@@ -139,6 +140,8 @@ nmap <silent> <leader>n :NERDTreeToggle<CR>
 " CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+let g:ctrlp_use_caching = 0
 
 " Vimux
 " Prompt for a command to run
@@ -149,6 +152,17 @@ map <Leader>vl :VimuxRunLastCommand<CR>
 map <leader>vc :VimuxCloseRunner<CR>
 " Interrupt any command running in the runner pane
 map <Leader>vi :VimuxInterruptRunner<CR>
+
+" Vroom
+let g:vroom_use_vimux = 1
+let g:vroom_cucumber_path = 'cucumber'
+if filereadable("bin/rails")
+  let g:vroom_spec_command = 'rspec'
+  let g:vroom_rspec_version = '3.x'
+else
+  let g:vroom_spec_command = 'spec'
+  let g:vroom_rspec_version = '1.x'
+endif
 
 " Autocommands  -------------------------------------------------
 if has("autocmd")

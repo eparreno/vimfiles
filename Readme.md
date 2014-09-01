@@ -11,9 +11,9 @@ My new vimfiles
 
 ## Base Customizations
 
-- leader set to ","
+- leader set to <space>
 - line numbers
-- soft 2-space tabs, and default hard tabs to 2 spaces
+- soft 2-space tabs and default hard tabs to 2 spaces
 - incremental, case-insensitive search
 - vertical split goes right, horizontal split goes below
 - cursor keys for movement are disabled!
@@ -21,26 +21,26 @@ My new vimfiles
 
 ## Mappings
 
-- **,** Leader key
+- **<space>** Leader key
 
 ### Normal mode
 
 - **\<C-j/k/h/l\>** - Switch between splits (no need to prepend <C-w>)
-- **Y**     - Act like D and C, i.e. to yank until EOL
-- **,e**    - Appends an edit command with the path of the currently edited file filled in
-- **,c**    - Comment/Uncomment current line or selected lines in visual mode
-- **,,**    - Switch to previous window
-- **,n**    - Toggle NERDTree
+- **Y**     - Act like D and C**<leader> i.e. to yank until EOL
+- **<leader>e**    - Appends an edit command with the path of the currently edited file filled in
+- **<leader>c**    - Comment/Uncomment current line or selected lines in visual mode
+- **<leader>**<leader>**    - Switch to previous window
+- **<leader>n**    - Toggle NERDTree
 - **<C-p>** - Open CtrlP
 
 ### Insert mode
 
-- **,p** - Toggle paste mode
+- **<leader>p** - Toggle paste mode
 - **jj** - Back to normal mode
 
 ### Command mode
 
-- **,p** - Insert current path
+- **<leader>p** - Insert current path
 
 ## Plugins
 
