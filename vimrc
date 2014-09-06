@@ -70,7 +70,7 @@ set laststatus=2                " show status line
 syntax enable
 colorscheme softdark
 
-"" Statusline
+" Statusline
 if has("statusline")
   let &stl=''                           " clear the statusline for when vimrc is reloaded
   let &stl.='%.50f'                     " buffers's file name
@@ -82,12 +82,6 @@ if has("statusline")
   let &stl.='%8.(%l,%v%)'               " cursor's current line
   let &stl.='%5.(%p%%%)'                " percentage through file in lines, as in <c-g>
 endif
-
-"" Syntastic
-" let g:syntastic_check_on_open=1
-let g:syntastic_enable_signs=1
-let g:syntastic_echo_current_error=1
-let g:syntastic_auto_loc_list=1
 
 " Mappings -------------------------------------------------
 let mapleader = "\<Space>"
@@ -116,14 +110,12 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" switch to previous window
-nmap <leader><leader> <c-^>
+" Fast buffer navigation
+noremap <Left> :bprev<CR>
+noremap <Right> :bnext<CR>
 
 " Clear search highlight
 nmap <silent> <SPACE> <SPACE>:noh<CR>
-
-" Find word under cursor
-nnoremap <leader>f :Ggrep <cword><CR>
 
 " Appends an edit command with the path of the currently edited file filled in
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -144,14 +136,10 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-stand
 let g:ctrlp_use_caching = 0
 
 " Vimux
-" Prompt for a command to run
-map <leader>vp :VimuxPromptCommand<CR>
-" Run last command
-map <Leader>vl :VimuxRunLastCommand<CR>
-" Close pane
-map <leader>vc :VimuxCloseRunner<CR>
-" Interrupt any command running in the runner pane
-map <Leader>vi :VimuxInterruptRunner<CR>
+map <leader>vp :VimuxPromptCommand<CR>    " prompt for a command to run
+map <Leader>vl :VimuxRunLastCommand<CR>   " run last command
+map <leader>vc :VimuxCloseRunner<CR>      " close pane
+map <Leader>vi :VimuxInterruptRunner<CR>  " interrupt any command running in the runner pane
 
 " Vroom
 let g:vroom_use_vimux = 1
@@ -163,6 +151,15 @@ else
   let g:vroom_spec_command = 'spec'
   let g:vroom_rspec_version = '1.x'
 endif
+
+" Syntastic
+" let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
+let g:syntastic_echo_current_error=1
+let g:syntastic_auto_loc_list=1
+
+" Autopairs
+let g:AutoPairsFlyMode = 1
 
 " Autocommands  -------------------------------------------------
 if has("autocmd")
