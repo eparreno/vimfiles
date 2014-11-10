@@ -15,18 +15,19 @@ set background=dark
 let g:colors_name = "softdark"
 
 " General colors
-hi Normal         ctermfg=007   ctermbg=233   cterm=none
+hi Normal         ctermfg=007   ctermbg=000   cterm=none
 hi Visual         ctermfg=none  ctermbg=008   cterm=none
 
-hi VertSplit      ctermfg=234   ctermbg=234   cterm=none
+hi VertSplit      ctermfg=235   ctermbg=235   cterm=none
 hi SignColumn     ctermfg=none  ctermbg=008   cterm=none
-hi NonText        ctermfg=237   ctermbg=233   cterm=none
+hi NonText        ctermfg=237   ctermbg=000   cterm=none
 hi LineNr         ctermfg=237   ctermbg=none  cterm=none
-hi CursorLine     ctermfg=none  ctermbg=none  cterm=none
-hi CursorLineNr   ctermfg=007   ctermbg=234  cterm=none
+hi Cursor         ctermfg=none  ctermbg=015   cterm=none
+hi CursorLine     ctermfg=none  ctermbg=233   cterm=none
+hi CursorLineNr   ctermfg=003   ctermbg=233   cterm=none
 hi ColorColumn    ctermfg=000   ctermbg=234   cterm=none
-hi StatusLine     ctermfg=007   ctermbg=234   cterm=bold
-hi StatusLineNC   ctermfg=008   ctermbg=234   cterm=none
+hi StatusLine     ctermfg=000   ctermbg=007   cterm=none
+hi StatusLineNC   ctermfg=015   ctermbg=235   cterm=none
 hi Pmenu          ctermfg=015   ctermbg=008   cterm=none
 hi PmenuSel       ctermfg=000   ctermbg=015   cterm=none
 
