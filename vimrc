@@ -14,6 +14,7 @@ Bundle 'gmarik/vundle'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-endwise'
 Bundle 'ervandew/supertab'
+Bundle 'christoomey/vim-tmux-navigator'
 
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
