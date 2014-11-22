@@ -15,6 +15,8 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-endwise'
 Bundle 'ervandew/supertab'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'benmills/vimux'
+Bundle 'jgdavey/vim-turbux'
 
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
@@ -28,7 +30,7 @@ let g:syntastic_enable_signs=1
 let g:syntastic_echo_current_error=1
 let g:syntastic_auto_loc_list=1
 
-"filetype on     "DO WE NEED THIS???
+filetype on
 
 " Config ------------------------------
 set encoding=utf-8              " utf-8 encoding
@@ -88,8 +90,13 @@ colorscheme softdark
 set pastetoggle=<F2>        " toggle paste  mode
 
 " Mappings ----------------------------
-noremap H ^             " move to beginning of line
-noremap L $             " move to end of line
+let mapleader = ","
+
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L $
+
 inoremap jj <Esc>
 inoremap kk <Esc>
 
@@ -114,6 +121,16 @@ vmap > >gv
 
 " Clear search highlight
 nmap <silent> <SPACE> :noh<CR>
+
+" Vimux -------------------------------
+" Prompt for a command to run
+map <leader>vp :VimuxPromptCommand<CR>
+" Repeat last command
+map <Leader>vr :VimuxRunLastCommand<CR>
+" Close pane
+map <leader>vc :VimuxCloseRunner<CR>
+" Interrupt any command running in the runner pane
+map <Leader>vi :VimuxInterruptRunner<CR>
 
 " Autocommands ------------------------
 " Autodelete trailing whitespace
