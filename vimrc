@@ -12,8 +12,10 @@ call vundle#rc()
 " Let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-endwise'
 Bundle 'ervandew/supertab'
+Bundle 'tpope/vim-commentary'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'benmills/vimux'
 Bundle 'jgdavey/vim-turbux'
@@ -119,8 +121,17 @@ nnoremap <C-l> <C-w>l
 vmap < <gv
 vmap > >gv
 
+" Comment a line/block
+map <leader>c gcc<CR>
+
+" Appends an edit command with the path of the currently edited file filled in
+nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
 " Clear search highlight
 nmap <silent> <SPACE> :noh<CR>
+
+" Go to previous buffer
+nmap <leader>, b#<CR>
 
 " Vimux -------------------------------
 " Prompt for a command to run
