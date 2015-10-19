@@ -1,45 +1,87 @@
 " vimrc
 " author: Emili Parreno
 " source: https://github.com/eparreno/vimfiles
-
 set nocompatible      " use Vim settings, rather than Vi settings
 
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 "" Plugins ----------------------------
 " Let Vundle manage Vundle
-Bundle 'gmarik/vundle'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-endwise'
-Bundle 'ervandew/supertab'
-Bundle 'tpope/vim-commentary'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'benmills/vimux'
-Bundle 'jgdavey/vim-turbux'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-endwise'
+Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-cucumber'
+Plugin 'tpope/vim-fugitive'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'Townk/vim-autoclose'
+let g:AutoClosePairs_add = "|"
+Plugin 'majutsushi/tagbar'
+Plugin 'edsono/vim-matchit'
+Plugin 'scrooloose/nerdtree'
+Plugin 'benmills/vimux'
+Plugin 'jgdavey/vim-turbux'
+Plugin 'pangloss/vim-javascript'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'itchyny/lightline.vim'
+let g:lightline = {
+      \ 'component_function': {
+      \   'filename': 'LightLineFilename'
+      \ },
+      \ 'active': {
+      \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
+      \}
+function! LightLineFilename()
+  return expand('%#')
+endfunction
 
-Bundle 'kien/ctrlp.vim'
+Plugin 'dag/vim-fish'
+Plugin 'ton/vim-bufsurf'
+Plugin 'ngmy/vim-rubocop'
+let g:vimrubocop_config = '.styleguides/ruby.yml'
+
+Plugin 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 let g:ctrlp_use_caching = 0
-let g:ctrlp_switch_buffer = 0 " open in new buffer
+let g:ctrlp_switch_buffer = -1 " open in new buffer
 
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 let g:syntastic_enable_signs=1
-let g:syntastic_echo_current_error=1
+" let g:syntastic_echo_current_error=1
 let g:syntastic_auto_loc_list=1
+let g:syntastic_mode_map={ 'mode': 'active','active_filetypes': [],'passive_filetypes': ['html', 'cucumber', 'scss'] }
 
-filetype on
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
 " Config ------------------------------
 set encoding=utf-8              " utf-8 encoding
 set fileformat=unix             " force unix file format
 set ruler                       " show cursor position in the statusbar
 set number                      " show line numbers
-set showmode                    " show the current mode of the editor
+" set showmode                    " show the current mode of the editor
+set noshowmode                    " show the current mode of the editor
 set showcmd                     " display incomplete commands
 set cursorline                  " show cursorline
 set autoread                    " auto-reload buffers when file changed on disk
@@ -48,6 +90,7 @@ set visualbell                  " no sounds
 set backspace=indent,eol,start  " make backspace work as expected
 set clipboard+=unnamed          " use system clipboard
 set re=1                        " use old regex engine http://goo.gl/ql7BtI
+set colorcolumn=80              " vertical ruler
 
 " Backup & swap
 set nobackup
@@ -82,7 +125,7 @@ set gdefault                " /g flag on :s substitutions by default
 
 " Look & Feel
 set t_Co=256                " use 256 colors terminal
-set background=dark 		    " dark background
+" set background=dark 		    " dark background
 set ttyfast                 " fast terminal connection
 set scrolloff=5             " min. number of screen lines above and below the cursor.
 set laststatus=2            " show status line
@@ -91,8 +134,10 @@ colorscheme softdark
 
 set pastetoggle=<F2>        " toggle paste  mode
 
+:set tags=.tags,tags
+
 " Mappings ----------------------------
-let mapleader = ","
+map <space> <leader>
 
 nnoremap H ^
 nnoremap L $
@@ -105,11 +150,19 @@ inoremap kk <Esc>
 map Y y$                " act like D and C, i.e. to yank until EOL
 noremap Q gq            " dont use Ex mode, use Q for formatting
 
+nnoremap ! :!
+
 " Disable arrow keys in normal mode
 nnoremap <Left>  <NOP>
 nnoremap <Right> <NOP>
 nnoremap <Up>    <NOP>
 nnoremap <Down>  <NOP>
+
+" Resize using arrow keys
+noremap <up>    <C-W>+
+noremap <down>  <C-W>-
+noremap <left>  5<C-W>>
+noremap <right> 5<C-W><
 
 " Improve window movement
 nnoremap <C-h> <C-w>h
@@ -128,10 +181,20 @@ map <leader>c gcc<CR>
 nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Clear search highlight
-nmap <silent> <SPACE> :noh<CR>
+nmap <silent> <space><space> :noh<CR>
 
-" Go to previous buffer
-nmap <leader>, b#<CR>
+nmap <leader>w :w<CR>
+nmap <leader>q :q<CR>
+nmap <leader>v :vsp<SPACE>
+nmap <leader>s :sp<SPACE>
+" nmap <Tab> :b#<CR>
+nmap <silent> <Tab> :BufSurfBack<CR>
+nmap <silent> <S-Tab> :BufSurfForward<CR>
+nmap <C-c> :bnext\|bdelete #<CR>
+nmap <leader>gg :Ggrep
+
+nmap <F7> :TagbarToggle<CR>
+nmap <F6> :NERDTreeToggle<CR>
 
 " Vimux -------------------------------
 " Prompt for a command to run
@@ -150,6 +213,9 @@ autocmd BufWritePre * :silent! %s/\s\+$//e
 " Set cursorline only for current window
 autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
+
+au BufRead,BufNewFile *.md set textwidth=80
+au BufRead,BufNewFile {Gemfile,Capfile,Rakefile,config.ru} set ft=ruby
 
 " When editing a file, always jump to the last known cursor position.
 autocmd BufReadPost *

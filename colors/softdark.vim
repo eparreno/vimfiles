@@ -25,7 +25,7 @@ hi LineNr         ctermfg=237   ctermbg=none  cterm=none
 hi Cursor         ctermfg=none  ctermbg=015   cterm=none
 hi CursorLine     ctermfg=none  ctermbg=233   cterm=none
 hi CursorLineNr   ctermfg=003   ctermbg=233   cterm=none
-hi ColorColumn    ctermfg=000   ctermbg=234   cterm=none
+hi ColorColumn    ctermfg=none  ctermbg=233   cterm=none
 hi StatusLine     ctermfg=000   ctermbg=007   cterm=none
 hi StatusLineNC   ctermfg=015   ctermbg=235   cterm=none
 hi Pmenu          ctermfg=015   ctermbg=008   cterm=none
