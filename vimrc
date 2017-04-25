@@ -38,6 +38,9 @@ let g:lightline = {
       \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
       \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
       \}
+Plugin 'leafgarland/typescript-vim'
+let g:typescript_indent_disable = 1
+
 function! LightLineFilename()
   return expand('%#')
 endfunction
@@ -57,8 +60,10 @@ let g:ctrlp_switch_buffer = -1 " open in new buffer
 Plugin 'scrooloose/syntastic'
 let g:syntastic_enable_signs=1
 " let g:syntastic_echo_current_error=1
-let g:syntastic_auto_loc_list=1
+let g:syntastic_auto_loc_list=0
 let g:syntastic_mode_map={ 'mode': 'active','active_filetypes': [],'passive_filetypes': ['html', 'cucumber', 'scss'] }
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_python_checkers = ['flake8']
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -88,7 +93,7 @@ set autoread                    " auto-reload buffers when file changed on disk
 set hidden                      " switch between buffers without saving them
 set visualbell                  " no sounds
 set backspace=indent,eol,start  " make backspace work as expected
-set clipboard+=unnamed          " use system clipboard
+set clipboard=unnamed           " use system clipboard
 set re=1                        " use old regex engine http://goo.gl/ql7BtI
 set colorcolumn=80              " vertical ruler
 
@@ -216,6 +221,9 @@ autocmd WinLeave * setlocal nocursorline
 
 au BufRead,BufNewFile *.md set textwidth=80
 au BufRead,BufNewFile {Gemfile,Capfile,Rakefile,config.ru} set ft=ruby
+
+" let terminal resize scale the internal windows
+autocmd VimResized * :wincmd =
 
 " When editing a file, always jump to the last known cursor position.
 autocmd BufReadPost *

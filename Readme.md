@@ -29,18 +29,13 @@ My new vimfiles
 - **Y**     - Act like D and C**<leader> i.e. to yank until EOL
 - **<leader>e**    - Appends an edit command with the path of the currently edited file filled in
 - **<leader>c**    - Comment/Uncomment current line or selected lines in visual mode
-- **<leader>**<leader>**    - Switch to previous window
-- **<leader>n**    - Toggle NERDTree
 - **<C-p>** - Open CtrlP
 
 ### Insert mode
 
-- **<leader>p** - Toggle paste mode
 - **jj** - Back to normal mode
 
 ### Command mode
-
-- **<leader>p** - Insert current path
 
 ## Plugins
 
