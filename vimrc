@@ -4,12 +4,13 @@
 set nocompatible      " use Vim settings, rather than Vi settings
 
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=$HOME/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 "" Plugins ----------------------------
 " Let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
+
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-endwise'
@@ -21,7 +22,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'Townk/vim-autoclose'
 let g:AutoClosePairs_add = "|"
 Plugin 'majutsushi/tagbar'
-Plugin 'edsono/vim-matchit'
+" Plugin 'edsono/vim-matchit'
 Plugin 'scrooloose/nerdtree'
 Plugin 'benmills/vimux'
 Plugin 'jgdavey/vim-turbux'
@@ -34,9 +35,7 @@ let g:lightline = {
       \ },
       \ 'active': {
       \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
-      \ },
-      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
+      \ }
       \}
 Plugin 'leafgarland/typescript-vim'
 let g:typescript_indent_disable = 1
