@@ -1,6 +1,7 @@
 " vimrc
 " author: Emili Parreno
 " source: https://github.com/eparreno/vimfiles
+
 set nocompatible      " use Vim settings, rather than Vi settings
 
 filetype off
@@ -16,18 +17,19 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-endwise'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-cucumber'
-Plugin 'tpope/vim-fugitive'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'Townk/vim-autoclose'
-let g:AutoClosePairs_add = "|"
-Plugin 'majutsushi/tagbar'
-" Plugin 'edsono/vim-matchit'
 Plugin 'scrooloose/nerdtree'
-Plugin 'benmills/vimux'
-Plugin 'jgdavey/vim-turbux'
 Plugin 'pangloss/vim-javascript'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'ton/vim-bufsurf'
+" Plugin 'tpope/vim-fugitive'
+" Plugin 'majutsushi/tagbar'
+" Plugin 'edsono/vim-matchit'
+
+Plugin 'Townk/vim-autoclose'
+let g:AutoClosePairs_add = "|"
+
 Plugin 'itchyny/lightline.vim'
 let g:lightline = {
       \ 'component_function': {
@@ -37,17 +39,12 @@ let g:lightline = {
       \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
       \ }
       \}
+
 Plugin 'leafgarland/typescript-vim'
 let g:typescript_indent_disable = 1
 
-function! LightLineFilename()
-  return expand('%#')
-endfunction
-
-Plugin 'dag/vim-fish'
-Plugin 'ton/vim-bufsurf'
 Plugin 'ngmy/vim-rubocop'
-let g:vimrubocop_config = '.styleguides/ruby.yml'
+let g:vimrubocop_config = '.rubocop.yml'
 
 Plugin 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
@@ -76,7 +73,6 @@ filetype plugin indent on    " required
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
-" see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
 " Config ------------------------------
@@ -84,8 +80,7 @@ set encoding=utf-8              " utf-8 encoding
 set fileformat=unix             " force unix file format
 set ruler                       " show cursor position in the statusbar
 set number                      " show line numbers
-" set showmode                    " show the current mode of the editor
-set noshowmode                    " show the current mode of the editor
+set noshowmode                  " do not show the current mode of the editor
 set showcmd                     " display incomplete commands
 set cursorline                  " show cursorline
 set autoread                    " auto-reload buffers when file changed on disk
@@ -129,7 +124,7 @@ set gdefault                " /g flag on :s substitutions by default
 
 " Look & Feel
 set t_Co=256                " use 256 colors terminal
-" set background=dark 		    " dark background
+set background=dark 		    " dark background
 set ttyfast                 " fast terminal connection
 set scrolloff=5             " min. number of screen lines above and below the cursor.
 set laststatus=2            " show status line
@@ -138,7 +133,7 @@ colorscheme softdark
 
 set pastetoggle=<F2>        " toggle paste  mode
 
-:set tags=.tags,tags
+set tags=.tags,tags
 
 " Mappings ----------------------------
 map <space> <leader>
@@ -187,28 +182,15 @@ nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 " Clear search highlight
 nmap <silent> <space><space> :noh<CR>
 
-nmap <leader>w :w<CR>
-nmap <leader>q :q<CR>
-nmap <leader>v :vsp<SPACE>
-nmap <leader>s :sp<SPACE>
-" nmap <Tab> :b#<CR>
-nmap <silent> <Tab> :BufSurfBack<CR>
-nmap <silent> <S-Tab> :BufSurfForward<CR>
+nmap <leader>w :w<CR>       " Save
+nmap <leader>q :q<CR>       " Quit
+nmap <leader>v :vsp<SPACE>  " New vertical window
+nmap <leader>s :sp<SPACE>   " New horizontal window
+nmap <silent> <Tab> :BufSurfBack<CR> " Previous buffer
+nmap <silent> <S-Tab> :BufSurfForward<CR> " Next buffer
 nmap <C-c> :bnext\|bdelete #<CR>
-nmap <leader>gg :Ggrep
 
-nmap <F7> :TagbarToggle<CR>
 nmap <F6> :NERDTreeToggle<CR>
-
-" Vimux -------------------------------
-" Prompt for a command to run
-map <leader>vp :VimuxPromptCommand<CR>
-" Repeat last command
-map <Leader>vr :VimuxRunLastCommand<CR>
-" Close pane
-map <leader>vc :VimuxCloseRunner<CR>
-" Interrupt any command running in the runner pane
-map <Leader>vi :VimuxInterruptRunner<CR>
 
 " Autocommands ------------------------
 " Autodelete trailing whitespace
@@ -229,6 +211,11 @@ autocmd BufReadPost *
   \ if line("'\"") > 0 |
   \   exe "normal g`\"" |
   \ endif
+
+" Show filename in the status bar
+function! LightLineFilename()
+  return expand('%#')
+endfunction
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
