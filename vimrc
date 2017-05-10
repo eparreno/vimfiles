@@ -23,9 +23,6 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'ton/vim-bufsurf'
-" Plugin 'tpope/vim-fugitive'
-" Plugin 'majutsushi/tagbar'
-" Plugin 'edsono/vim-matchit'
 
 Plugin 'Townk/vim-autoclose'
 let g:AutoClosePairs_add = "|"
