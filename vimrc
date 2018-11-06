@@ -23,12 +23,14 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'ton/vim-bufsurf'
+Plugin 'slim-template/vim-slim'
 
 Plugin 'Townk/vim-autoclose'
 let g:AutoClosePairs_add = "|"
 
 Plugin 'itchyny/lightline.vim'
 let g:lightline = {
+      \ 'colorscheme': 'wombat',
       \ 'component_function': {
       \   'filename': 'LightLineFilename'
       \ },
@@ -132,12 +134,21 @@ set pastetoggle=<F2>        " toggle paste  mode
 
 set tags=.tags,tags
 
+" Folding
+" setl foldmethod=indent
+
 " Mappings ----------------------------
 map <space> <leader>
 
+" Use ; for commands
+nnoremap ; :
+" Go to beginning of line
 nnoremap H ^
+" Go to end of line
 nnoremap L $
+" Go to beginning of line
 vnoremap H ^
+" Go to end of line
 vnoremap L $
 
 inoremap jj <Esc>
@@ -188,6 +199,9 @@ nmap <silent> <S-Tab> :BufSurfForward<CR> " Next buffer
 nmap <C-c> :bnext\|bdelete #<CR>
 
 nmap <F6> :NERDTreeToggle<CR>
+
+" recursively open/close current fold
+nmap <leader>t <leader>zA<CR>
 
 " Autocommands ------------------------
 " Autodelete trailing whitespace

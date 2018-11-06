@@ -21,7 +21,7 @@ hi Visual         ctermfg=none  ctermbg=008   cterm=none
 hi VertSplit      ctermfg=235   ctermbg=235   cterm=none
 hi SignColumn     ctermfg=none  ctermbg=008   cterm=none
 hi NonText        ctermfg=237   ctermbg=000   cterm=none
-hi LineNr         ctermfg=237   ctermbg=none  cterm=none
+hi LineNr         ctermfg=008   ctermbg=none  cterm=none
 hi Cursor         ctermfg=none  ctermbg=015   cterm=none
 hi CursorLine     ctermfg=none  ctermbg=233   cterm=none
 hi CursorLineNr   ctermfg=003   ctermbg=233   cterm=none
