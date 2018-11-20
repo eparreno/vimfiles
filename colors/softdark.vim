@@ -34,7 +34,7 @@ hi PmenuSel       ctermfg=000   ctermbg=015   cterm=none
 " Syntax highlighting
 hi Statement      ctermfg=039   ctermbg=none  cterm=bold
 hi PreProc        ctermfg=039   ctermbg=none  cterm=bold
-hi String         ctermfg=028   ctermbg=none  cterm=none
+hi String         ctermfg=010   ctermbg=none  cterm=none
 
 hi Comment        ctermfg=243   ctermbg=none  cterm=none
 hi! link Todo     Comment

@@ -151,11 +151,11 @@ vnoremap H ^
 " Go to end of line
 vnoremap L $
 
-inoremap jj <Esc>
-inoremap kk <Esc>
+inoremap jj <Esc>     " Map jj to ESC
+inoremap kk <Esc>     " Map kk to ESC
 
-map Y y$                " act like D and C, i.e. to yank until EOL
-noremap Q gq            " dont use Ex mode, use Q for formatting
+map Y y$              " act like D and C, i.e. to yank until EOL
+noremap Q gq          " dont use Ex mode, use Q for formatting
 
 nnoremap ! :!
 
