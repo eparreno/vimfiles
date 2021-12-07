@@ -12,20 +12,21 @@ call vundle#begin()
 " Let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'Townk/vim-autoclose'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-endwise'
 Plugin 'ervandew/supertab'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'ton/vim-bufsurf'
+
+Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-commentary'
-Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'pangloss/vim-javascript'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'ton/vim-bufsurf'
 Plugin 'slim-template/vim-slim'
 
-Plugin 'Townk/vim-autoclose'
 let g:AutoClosePairs_add = "|"
 
 Plugin 'itchyny/lightline.vim'
@@ -166,8 +167,8 @@ nnoremap <Up>    <NOP>
 nnoremap <Down>  <NOP>
 
 " Resize using arrow keys
-noremap <up>    <C-W>+
-noremap <down>  <C-W>-
+noremap <up>    <C-W>-
+noremap <down>  <C-W>+
 noremap <left>  5<C-W>>
 noremap <right> 5<C-W><
 
@@ -187,7 +188,7 @@ map <leader>c gcc<CR>
 " Appends an edit command with the path of the currently edited file filled in
 nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
-" Clear search highlight
+" Clear search highlight hitting space twice
 nmap <silent> <space><space> :noh<CR>
 
 nmap <leader>w :w<CR>       " Save
@@ -198,13 +199,13 @@ nmap <silent> <Tab> :BufSurfBack<CR> " Previous buffer
 nmap <silent> <S-Tab> :BufSurfForward<CR> " Next buffer
 nmap <C-c> :bnext\|bdelete #<CR>
 
-nmap <F6> :NERDTreeToggle<CR>
+nmap <leader>0 :NERDTreeToggle<CR>
 
 " recursively open/close current fold
 nmap <leader>t <leader>zA<CR>
 
 " Autocommands ------------------------
-" Autodelete trailing whitespace
+" Autodelete trailing whitespaces when saving
 autocmd BufWritePre * :silent! %s/\s\+$//e
 
 " Set cursorline only for current window
@@ -214,7 +215,7 @@ autocmd WinLeave * setlocal nocursorline
 au BufRead,BufNewFile *.md set textwidth=80
 au BufRead,BufNewFile {Gemfile,Capfile,Rakefile,config.ru} set ft=ruby
 
-" let terminal resize scale the internal windows
+" let terminal resize the internal windows
 autocmd VimResized * :wincmd =
 
 " When editing a file, always jump to the last known cursor position.
