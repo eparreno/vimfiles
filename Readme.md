@@ -4,7 +4,7 @@ My new vimfiles
 
 ## Installation
 
-````
+```
 git clone https://github.com/eparreno/vimfiles.git ~/.vim
 ```
 
