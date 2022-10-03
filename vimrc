@@ -4,32 +4,36 @@
 
 set nocompatible      " use Vim settings, rather than Vi settings
 
-filetype off
-set rtp+=$HOME/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-"" Plugins ----------------------------
-" Let Vundle manage Vundle
-Plugin 'gmarik/Vundle.vim'
+" Plugins (vim-plug) https://github.com/junegunn/vim-plug
 
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'Townk/vim-autoclose'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-rails'
-Plugin 'ervandew/supertab'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'ton/vim-bufsurf'
+" Automatic installation.
+" https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
+let data_dir = has('vim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-commentary'
-Plugin 'scrooloose/nerdtree'
-Plugin 'pangloss/vim-javascript'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'slim-template/vim-slim'
+call plug#begin()
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'Townk/vim-autoclose'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'ervandew/supertab'
+Plug 'elixir-lang/vim-elixir'
+Plug 'ton/vim-bufsurf'
+
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-commentary'
+Plug 'scrooloose/nerdtree'
+Plug 'pangloss/vim-javascript'
+Plug 'airblade/vim-gitgutter'
+Plug 'slim-template/vim-slim'
 
 let g:AutoClosePairs_add = "|"
 
-Plugin 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'component_function': {
@@ -40,20 +44,20 @@ let g:lightline = {
       \ }
       \}
 
-Plugin 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 let g:typescript_indent_disable = 1
 
-Plugin 'ngmy/vim-rubocop'
+Plug 'ngmy/vim-rubocop'
 let g:vimrubocop_config = '.rubocop.yml'
 
-Plugin 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 let g:ctrlp_use_caching = 0
 let g:ctrlp_switch_buffer = -1 " open in new buffer
 
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 let g:syntastic_enable_signs=1
 " let g:syntastic_echo_current_error=1
 let g:syntastic_auto_loc_list=0
@@ -61,23 +65,10 @@ let g:syntastic_mode_map={ 'mode': 'active','active_filetypes': [],'passive_file
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_python_checkers = ['flake8']
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" Put your non-Plugin stuff after this line
+" End of Plugins
 
 " Config ------------------------------
 set encoding=utf-8              " utf-8 encoding
-set fileformat=unix             " force unix file format
 set ruler                       " show cursor position in the statusbar
 set number                      " show line numbers
 set noshowmode                  " do not show the current mode of the editor
