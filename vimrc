@@ -2,11 +2,10 @@
 " author: Emili Parreno
 " source: https://github.com/eparreno/vimfiles
 
-set nocompatible      " use Vim settings, rather than Vi settings
-
+set nocompatible  " use Vim settings, rather than Vi settings
 
 " Plugins (vim-plug) https://github.com/junegunn/vim-plug
-
+"
 " Automatic installation.
 " https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
 let data_dir = has('vim') ? stdpath('data') . '/site' : '~/.vim'
@@ -23,7 +22,6 @@ Plug 'tpope/vim-rails'
 Plug 'ervandew/supertab'
 Plug 'elixir-lang/vim-elixir'
 Plug 'ton/vim-bufsurf'
-
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
@@ -31,6 +29,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'airblade/vim-gitgutter'
 Plug 'slim-template/vim-slim'
 
+Plug 'Townk/vim-autoclose'
 let g:AutoClosePairs_add = "|"
 
 Plug 'itchyny/lightline.vim'
@@ -65,8 +64,11 @@ let g:syntastic_mode_map={ 'mode': 'active','active_filetypes': [],'passive_file
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_python_checkers = ['flake8']
 
-" End of Plugins
+" Initialize plugin system
+" - Automatically executes `filetype plugin indent on` and `syntax enable`.
+call plug#end()
 
+filetype plugin indent on
 " Config ------------------------------
 set encoding=utf-8              " utf-8 encoding
 set ruler                       " show cursor position in the statusbar
@@ -219,6 +221,10 @@ autocmd BufReadPost *
 function! LightLineFilename()
   return expand('%#')
 endfunction
+
+"filetype on
+"filetype plugin on
+"filetype indent on
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
