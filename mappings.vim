@@ -63,5 +63,3 @@ nmap <leader>0 :NERDTreeToggle<CR>
 
 " recursively open/close current fold
 nmap <leader>t <leader>zA<CR>
-
-

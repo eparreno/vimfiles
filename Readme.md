@@ -1,6 +1,6 @@
 # vimfiles
 
-My new vimfiles
+My vimfiles
 
 ## Installation
 
@@ -41,6 +41,7 @@ That's it. Really. You don't even need to link `.vimrc`
 ## Plugins
 
 Check vimrc file for the list of installed plugins
+Execute `:PlugInstall` to install plugins
 
 ## Customization
 

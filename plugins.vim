@@ -37,14 +37,6 @@ function! LightLineFilename()
   return expand('%#')
 endfunction
 
-
-" Neovim only plugins
-if has('nvim')
-  Plug 'Mofiqul/dracula.nvim'
-endif
-
-" Vim only plugins
-if !has('nvim')
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'Townk/vim-autoclose'
 Plug 'vim-ruby/vim-ruby'
@@ -75,7 +67,6 @@ let g:syntastic_auto_loc_list=0
 let g:syntastic_mode_map={ 'mode': 'active','active_filetypes': [],'passive_filetypes': ['html', 'cucumber', 'scss'] }
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_python_checkers = ['flake8']
-endif
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.

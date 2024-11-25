@@ -15,13 +15,14 @@ source ~/.vim/plugins.vim
 source ~/.vim/config.vim
 source ~/.vim/mappings.vim
 
-colorscheme softdark
+colorscheme nord
 
 " Autocommands ------------------------
 
-" Set cursorline only for current window
-autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
+" Set cursorline. Only for current window
+" set cursorline                  " show cursorline
+" autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+" autocmd WinLeave * setlocal nocursorline
 
 au BufRead,BufNewFile *.md set textwidth=80
 au BufRead,BufNewFile {Gemfile,Capfile,Rakefile,config.ru} set ft=ruby

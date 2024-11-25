@@ -2,17 +2,17 @@
 set nocompatible                " use Vim settings, rather than Vi settings
 set encoding=utf-8              " utf-8 encoding
 set ruler                       " show cursor position in the statusbar
+" set cursorline                  " show line under cursor
 set number                      " show line numbers
 set noshowmode                  " do not show the current mode of the editor
 set showcmd                     " display incomplete commands
-set cursorline                  " show cursorline
 set autoread                    " auto-reload buffers when file changed on disk
 set hidden                      " switch between buffers without saving them
-set visualbell                  " no sounds
+" set visualbell                  " no sounds
 set backspace=indent,eol,start  " make backspace work as expected
 set clipboard=unnamed           " use system clipboard
 set re=1                        " use old regex engine http://goo.gl/ql7BtI
-set colorcolumn=80              " vertical ruler
+" set colorcolumn=80              " vertical ruler
 
 " Backup & swap
 set nobackup
@@ -50,7 +50,7 @@ set gdefault                " /g flag on :s substitutions by default
 set t_Co=256                " use 256 colors terminal
 set background=dark 		    " dark background
 set ttyfast                 " fast terminal connection
-set scrolloff=5             " min. number of screen lines above and below the cursor.
+set scrolloff=2             " min. number of screen lines above and below the cursor.
 set laststatus=2            " show status line
 syntax enable 			        " enable syntax highlight
 
