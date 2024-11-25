@@ -12,7 +12,7 @@ That's it. Really. You don't even need to link `.vimrc`
 
 ## Base Customizations
 
-- leader set to '<space>'
+- leader set to `<space>`
 - line numbers
 - soft 2-space tabs and default hard tabs to 2 spaces
 - incremental, case-insensitive search
@@ -22,7 +22,7 @@ That's it. Really. You don't even need to link `.vimrc`
 
 ## Mappings
 
-- '<space>' Leader key
+- `<space>` Leader key
 
 ### Normal mode
 
